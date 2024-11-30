@@ -141,6 +141,8 @@ int http_request(int sockfd, int epfd) {
 	// 获取正常文件名，跳过 '/'
 	else pFile = fileName + 1;
 
+	//处理中文类型的请求
+	strdecode(pFile, pFile);
 	printf("pFile:[%s]\n", pFile);
 
 	// 丢弃剩余的请求头，直到遇到空行
